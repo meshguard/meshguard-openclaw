@@ -36,9 +36,15 @@ const plugin = {
   }) {
     const rawConfig = api.pluginConfig || {};
     
+    // Check if explicitly disabled (default is now false)
+    if (rawConfig.enabled !== true) {
+      api.logger.info("[meshguard] Governance not enabled for this agent");
+      return;
+    }
+
     // Build config with defaults
     const config: MeshGuardConfig = {
-      enabled: rawConfig.enabled !== false,
+      enabled: true,
       apiKey: rawConfig.apiKey as string || "",
       agentId: rawConfig.agentId as string || "",
       gatewayUrl: (rawConfig.gatewayUrl as string) || "https://dashboard.meshguard.app",
@@ -48,13 +54,13 @@ const plugin = {
       failOpen: rawConfig.failOpen === true,
     };
 
-    // Validate required config
+    // Validate required config when enabled
     if (!config.apiKey) {
-      api.logger.warn("[meshguard] No API key configured - governance disabled");
+      api.logger.error("[meshguard] Enabled but no API key configured - governance disabled");
       return;
     }
     if (!config.agentId) {
-      api.logger.warn("[meshguard] No agent ID configured - governance disabled");
+      api.logger.error("[meshguard] Enabled but no agent ID configured - governance disabled");
       return;
     }
 

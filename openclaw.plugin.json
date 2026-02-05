@@ -2,23 +2,23 @@
   "id": "meshguard",
   "name": "MeshGuard Governance",
   "description": "AI agent governance, policy enforcement, and audit logging",
-  "version": "0.1.0",
+  "version": "0.5.0",
   "configSchema": {
     "type": "object",
     "additionalProperties": false,
     "properties": {
       "enabled": {
         "type": "boolean",
-        "default": true,
-        "description": "Enable MeshGuard governance"
+        "default": false,
+        "description": "Enable MeshGuard governance (requires apiKey and agentId when true)"
       },
       "apiKey": {
         "type": "string",
-        "description": "MeshGuard API key (msk_xxx)"
+        "description": "MeshGuard API key (msk_xxx) - required when enabled"
       },
       "agentId": {
         "type": "string",
-        "description": "MeshGuard agent ID (agent_xxx)"
+        "description": "MeshGuard agent ID (agent_xxx) - required when enabled"
       },
       "gatewayUrl": {
         "type": "string",
@@ -48,6 +48,12 @@
         "description": "If true, allow actions when MeshGuard is unreachable"
       }
     },
-    "required": ["apiKey", "agentId"]
+    "if": {
+      "properties": { "enabled": { "const": true } },
+      "required": ["enabled"]
+    },
+    "then": {
+      "required": ["apiKey", "agentId"]
+    }
   }
 }
