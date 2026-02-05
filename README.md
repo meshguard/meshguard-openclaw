@@ -165,8 +165,8 @@ That's it! MeshGuard will now:
 
 - [MeshGuard Docs](https://docs.meshguard.app)
 - [OpenClaw Integration Guide](https://docs.meshguard.app/integrations/openclaw)
-- [Policy Reference](https://docs.meshguard.app/policies)
-- [API Reference](https://docs.meshguard.app/api)
+- [Policy Reference](https://docs.meshguard.app/guide/policies)
+- [API Reference](https://docs.meshguard.app/api/overview)
 
 ## Support
 
