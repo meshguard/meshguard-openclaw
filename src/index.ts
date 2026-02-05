@@ -63,9 +63,11 @@ const plugin = {
     );
 
     // Register before_tool_call hook for policy enforcement
+    // Register before_tool_call hook for policy enforcement
+    // Using api.on() which goes to typedHooks (what the hook runner checks)
     api.on("before_tool_call", createBeforeToolHandler(config));
 
-    // Register after_tool_call hook for audit logging
+    // Register after_tool_call hook for audit logging  
     api.on("after_tool_call", createAfterToolHandler(config));
 
     // Register gateway_stop hook to flush audit queue
