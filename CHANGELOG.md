@@ -1,29 +1,23 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+## 0.2.0 (2026-02-05)
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+### Breaking Changes
+- **Package renamed** from `@meshguard/openclaw` to `@meshguard/meshguard`
+  - Fixes plugin installation issue where directory name didn't match plugin ID
+  - Update your install command: `openclaw plugins install @meshguard/meshguard`
 
-## [0.1.0] - 2026-02-04
+### Fixed
+- Plugin ID mismatch error during installation
 
-### Added
+## 0.1.3 (2026-02-04)
 
-- Initial release of MeshGuard OpenClaw extension
-- `before_tool_call` hook for policy enforcement
-- `after_tool_call` hook for audit logging
-- Policy evaluation with local caching
-- Batched audit event submission
-- Support for enforce, audit, and bypass modes
-- Automatic sensitive data redaction
-- Configurable fail-open/fail-closed behavior
+- Added `openclaw.extensions` field to package.json
+- Fixed plugin discovery
 
-### Configuration
+## 0.1.0 (2026-02-04)
 
-- `apiKey`: MeshGuard API key (required)
-- `agentId`: MeshGuard agent ID (required)
-- `gatewayUrl`: MeshGuard gateway URL (default: https://dashboard.meshguard.app)
-- `mode`: Governance mode - enforce, audit, or bypass (default: enforce)
-- `auditLevel`: Log verbosity - minimal, standard, or verbose (default: standard)
-- `cacheTimeoutMs`: Policy cache duration in ms (default: 60000)
-- `failOpen`: Allow actions when MeshGuard is unreachable (default: false)
+- Initial release
+- Policy enforcement hooks (before/after tool execution)
+- Audit logging to MeshGuard cloud
+- Configurable modes: enforce, audit, bypass
