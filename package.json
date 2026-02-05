@@ -1,6 +1,6 @@
 {
   "name": "@meshguard/openclaw",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Official MeshGuard extension for OpenClaw - AI agent governance, policy enforcement, and audit logging",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -44,5 +44,10 @@
   },
   "engines": {
     "node": ">=20.0.0"
+  },
+  "openclaw": {
+    "extensions": [
+      "./dist/index.js"
+    ]
   }
 }
