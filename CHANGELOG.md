@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.5.0 (2026-02-05)
+
+### Changed
+- **Config now optional by default**: `enabled` defaults to `false`
+- `apiKey` and `agentId` only required when `enabled: true`
+- Allows global plugin installation without requiring config for every agent
+- Per-agent config in workspace `openclaw.json` enables governance selectively
+
+### Fixed
+- Plugin no longer fails validation when installed but not configured
+
+## 0.4.0 (2026-02-05)
+
+### Fixed
+- Hook registration now uses `api.on()` instead of `api.registerHook()`
+- All auditing moved to `before_tool_call` (workaround for OpenClaw hook bug)
+
 ## 0.3.0 (2026-02-05)
 
 ### Breaking Changes
