@@ -31,7 +31,7 @@ const plugin = {
   register(api: {
     id: string;
     pluginConfig?: Record<string, unknown>;
-    registerHook: (events: string | string[], handler: unknown) => void;
+    registerHook: (events: string | string[], handler: unknown, opts?: { name: string }) => void;
     logger: { info: (msg: string) => void; warn: (msg: string) => void; error: (msg: string) => void };
   }) {
     const rawConfig = api.pluginConfig || {};
@@ -63,16 +63,20 @@ const plugin = {
     );
 
     // Register before_tool_call hook for policy enforcement
-    api.registerHook("before_tool_call", createBeforeToolHandler(config));
+    api.registerHook("before_tool_call", createBeforeToolHandler(config), { 
+      name: "meshguard-policy-check" 
+    });
 
     // Register after_tool_call hook for audit logging
-    api.registerHook("after_tool_call", createAfterToolHandler(config));
+    api.registerHook("after_tool_call", createAfterToolHandler(config), { 
+      name: "meshguard-audit-log" 
+    });
 
     // Register gateway_stop hook to flush audit queue
     api.registerHook("gateway_stop", async () => {
       api.logger.info("[meshguard] Flushing audit queue before shutdown...");
       await flushAuditQueue(config);
-    });
+    }, { name: "meshguard-flush-queue" });
 
     api.logger.info("[meshguard] Governance hooks registered successfully");
   },
