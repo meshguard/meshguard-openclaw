@@ -1,23 +1,22 @@
 # Changelog
 
-## 0.2.0 (2026-02-05)
+## 0.3.0 (2026-02-05)
 
 ### Breaking Changes
-- **Package renamed** from `@meshguard/openclaw` to `@meshguard/meshguard`
-  - Fixes plugin installation issue where directory name didn't match plugin ID
-  - Update your install command: `openclaw plugins install @meshguard/meshguard`
+- **Package renamed** to `meshguard-openclaw`
+  - Clear naming: MeshGuard extension for OpenClaw
+  - Install: `openclaw plugins install meshguard-openclaw`
 
-### Fixed
-- Plugin ID mismatch error during installation
+## 0.2.0 (2026-02-05)
+
+- Attempted rename to `@meshguard/meshguard` (superseded)
 
 ## 0.1.3 (2026-02-04)
 
 - Added `openclaw.extensions` field to package.json
-- Fixed plugin discovery
 
 ## 0.1.0 (2026-02-04)
 
 - Initial release
-- Policy enforcement hooks (before/after tool execution)
+- Policy enforcement hooks
 - Audit logging to MeshGuard cloud
-- Configurable modes: enforce, audit, bypass

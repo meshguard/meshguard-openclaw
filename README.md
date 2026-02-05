@@ -1,8 +1,8 @@
-# @meshguard/meshguard
+# meshguard-openclaw
 
 Official MeshGuard extension for [OpenClaw](https://openclaw.ai) — AI agent governance, policy enforcement, and audit logging.
 
-[![npm version](https://badge.fury.io/js/%40meshguard%2Fopenclaw.svg)](https://www.npmjs.com/package/@meshguard/meshguard)
+[![npm version](https://badge.fury.io/js/%40meshguard%2Fopenclaw.svg)](https://www.npmjs.com/package/meshguard-openclaw)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Overview
@@ -20,13 +20,13 @@ This extension integrates MeshGuard with OpenClaw agents, enabling governance wi
 
 ```bash
 # npm
-npm install @meshguard/meshguard
+npm install meshguard-openclaw
 
 # pnpm
-pnpm add @meshguard/meshguard
+pnpm add meshguard-openclaw
 
 # Or via OpenClaw CLI
-openclaw plugins install @meshguard/meshguard
+openclaw plugins install meshguard-openclaw
 ```
 
 ## Quick Start
@@ -43,7 +43,7 @@ Add to your `openclaw.json`:
 
 ```json
 {
-  "plugins": ["@meshguard/meshguard"],
+  "plugins": ["meshguard-openclaw"],
   "meshguard": {
     "apiKey": "${MESHGUARD_API_KEY}",
     "agentId": "agent_xxx",
