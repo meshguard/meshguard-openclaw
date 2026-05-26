@@ -1,5 +1,7 @@
 # meshguard-openclaw
 
+> **Maintenance mode:** this extension remains supported for security patches, bug fixes, and compatibility. New cross-framework governance features are moving to AGT + MeshGuard, guardian sidecar, and egress enforcement. Existing OpenClaw deployments can keep this extension while planning migration.
+
 Official MeshGuard extension for [OpenClaw](https://openclaw.ai) — AI agent governance, policy enforcement, and audit logging.
 
 [![npm version](https://badge.fury.io/js/%40meshguard%2Fopenclaw.svg)](https://www.npmjs.com/package/meshguard-openclaw)
